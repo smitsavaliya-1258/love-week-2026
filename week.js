@@ -240,13 +240,13 @@ Keep this hug with you today. It’s mine. 🧸❤️<br><br>
   if (d.type === "reveal") {
   openModal(
     `${fmt(d.date)} · ${d.title}`,
-    `Tap to reveal.`,
+    `Tap to reveal a memory.`,
     `
-      <div class="row">
+      <div class="row" style="display:flex; gap:10px; justify-content:center;">
         <button class="btn primary rv" data-idx="0">Memory 1: Travel 🌄</button>
         <button class="btn primary rv" data-idx="1">Memory 2: Close 🤍</button>
       </div>
-      <div id="msg"></div>
+      <div id="msg" style="margin-top:20px;"></div>
     `
   );
 
@@ -261,20 +261,24 @@ Keep this hug with you today. It’s mine. 🧸❤️<br><br>
     }
   ];
 
+  // Logic to handle the click
+  const buttons = document.querySelectorAll(".rv");
   const out = document.getElementById("msg");
 
-  // Attach listeners to the buttons after they are added to the DOM
-  document.querySelectorAll(".rv").forEach(btn => {
+  buttons.forEach(btn => {
     btn.onclick = () => {
-      const i = btn.getAttribute("data-idx"); // Get the index we stored
+      const i = btn.getAttribute("data-idx");
       out.innerHTML = `
-        <div class="success">
+        <div class="success" style="animation: fadeIn 0.5s ease;">
           <img src="${memories[i].img}" 
-               style="width:100%; border-radius:16px; margin-top:15px; margin-bottom:10px;" />
-          <div>${memories[i].text}</div>
+               alt="Our Memory"
+               style="width:100%; border-radius:16px; margin-bottom:10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);" 
+               onerror="this.src='https://via.placeholder.com/300?text=Image+Not+Found'"/>
+          <div style="font-style: italic; color: #555;">${memories[i].text}</div>
         </div>
       `;
-      markDone(d.id); // Mark the day as completed once a memory is seen
+      markDone(d.id);
+      renderCards();
     };
   });
   return;
