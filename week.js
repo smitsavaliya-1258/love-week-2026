@@ -268,9 +268,7 @@ Keep this hug with you today. It’s mine. 🧸❤️<br><br>
       b.onclick = () => { 
         out.innerHTML = `
           <div class="success">
-            <img src="${memories[i].img}" 
-                 style="width:100%; border-radius:12px; margin-bottom:8px;" 
-                 onerror="this.src='https://via.placeholder.com/300?text=Check+Image+Path'"/>
+            <img src="${memories[i].img}" class="mem-img" />
             <div>${memories[i].text}</div>
           </div>`; 
       };
