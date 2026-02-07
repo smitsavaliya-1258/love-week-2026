@@ -8,7 +8,7 @@
 A beautiful, interactive Valentine's Day website generator to ask your special someone to be your Valentine! Create your own personalized version in minutes. Perfect for Valentine's Day 2026! 💝
 Follow below the tutorial how to custom the website and get your custom URL and access your website on the internet from everywhere !
 
-🌟 **[Live Demo]([https://end2endai.github.io/valentine-website-2025](https://smitsavaliya-1258.github.io/love-week-2026/))**
+🌟 **[Live Demo]([https://smitsavaliya-1258.github.io/love-week-2026/])**
 
 ## 🌟 Share The Love
 
