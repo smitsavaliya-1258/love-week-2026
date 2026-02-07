@@ -30,6 +30,37 @@ const closeBtn = document.getElementById("closeBtn");
 const mTitle = document.getElementById("mTitle");
 const mText = document.getElementById("mText");
 const mBody = document.getElementById("mBody");
+const cursorEmoji = document.getElementById("cursorEmoji");
+const emojiMap = {
+  code: "🌹",
+  choose: "💍",
+  slider: "🍫",
+  letter: "🧸",
+  checks: "🤝",
+  reveal: "🫂",
+  question: "😘",
+  final: "❤️"
+};
+
+document.addEventListener("mousemove", (e) => {
+  cursorEmoji.style.left = e.clientX + "px";
+  cursorEmoji.style.top = e.clientY + "px";
+});
+
+grid.addEventListener("mouseover", (e) => {
+  const card = e.target.closest(".daycard");
+  if (!card || card.classList.contains("locked")) return;
+
+  const index = Array.from(grid.children).indexOf(card);
+  const day = DAYS[index];
+
+  cursorEmoji.textContent = emojiMap[day.type] || "❤️";
+  cursorEmoji.style.display = "block";
+});
+
+grid.addEventListener("mouseout", () => {
+  cursorEmoji.style.display = "none";
+});
 
 function unlockedByDate(dateStr) {
   // ISO strings compare lexicographically correctly for YYYY-MM-DD
