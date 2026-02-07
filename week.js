@@ -1,6 +1,5 @@
 // Divya ❤️ Smit — Valentine Week dashboard
 // Unlock window: Feb 7–14, 2026
-// Locking uses Asia/Kolkata date (not device timezone)
 
 const DAYS = [
   { id: "d1", date: "2026-02-10", title: "Rose Day",       label: "One small key 🔑",     type: "code" },
