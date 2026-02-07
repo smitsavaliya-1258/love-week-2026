@@ -238,51 +238,32 @@ Keep this hug with you today. It’s mine. 🧸❤️<br><br>
   }
 
   if (d.type === "reveal") {
-
-  openModal(
-    `${fmt(d.date)} · ${d.title}`,
-    `Two moments I keep replaying in my mind 💕`,
-    `
-      <div class="row">
-        <button class="btn primary rv" data-i="0">Travel 🌄</button>
-        <button class="btn primary rv" data-i="1">Close 🤍</button>
-      </div>
-      <div id="msg" style="margin-top:16px;"></div>
-    `
-  );
-
-  const memories = [
-    {
-      img: "memories/MEM_1.jpg",
-      text: "That day with the mountains behind us and no stress around us. Just you, me, and peace, with family offcourse. 🌄💚"
-    },
-    {
-      img: "memories/MEM_2.png",
-      text: "When we’re this close, everything else fades. It’s not just happiness — it’s comfort. 🤍✨"
-    }
-  ];
-
-  const out = document.getElementById("msg");
-
-  document.querySelectorAll(".rv").forEach(btn => {
-    btn.onclick = () => {
-      const i = btn.dataset.i;
-
-      out.innerHTML = `
-        <div class="success">
-          <img src="${memories[i].img}" 
-               style="width:100%; max-width:420px; border-radius:18px; margin-bottom:12px; box-shadow:0 15px 35px rgba(0,0,0,0.15);" />
-          <div>${memories[i].text}</div>
+    openModal(
+      `${fmt(d.date)} · ${d.title}`,
+      `Tap to reveal.`,
+      `
+        <div class="row">
+          <button class="btn primary rv">Memory 1</button>
+          <button class="btn primary rv">Memory 2</button>
+          <button class="btn primary rv">Memory 3</button>
         </div>
-      `;
-    };
-  });
+        <div id="msg"></div>
+      `
+    );
+    const msgs = [
+      "(Replace with a real memory 1)",
+      "(Replace with a real memory 2)",
+      "(Replace with a real memory 3)",
+    ];
+    const out = document.getElementById("msg");
+    Array.from(document.querySelectorAll(".rv")).forEach((b, i) => {
+      b.onclick = () => { out.innerHTML = `<div class="success">${msgs[i]}</div>`; };
+    });
 
-  markDone(d.id);
-  renderCards();
-  return;
-}
-
+    // Completing this day just by opening keeps it non-annoying
+    markDone(d.id);
+    renderCards();
+    return;
   }
 
   if (d.type === "question") {
