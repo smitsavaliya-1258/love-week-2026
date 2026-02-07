@@ -1,166 +1,119 @@
-# 💝 Valentine's Day Website 2026 💝
+---
 
-[![Stars](https://img.shields.io/github/stars/End2EndAI/valentine-website-2025?style=social)](https://github.com/End2EndAI/valentine-website-2025/stargazers)
-[![Fork](https://img.shields.io/github/forks/End2EndAI/valentine-website-2025?style=social)](https://github.com/End2EndAI/valentine-website-2025/fork)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Tweet](https://img.shields.io/twitter/url?style=social&url=https%3A%2F%2Fgithub.com%2FEnd2EndAI%2Fvalentine-website-2025)](https://twitter.com/intent/tweet?text=%F0%9F%92%9D%20Create%20your%20own%20Valentine%27s%20website%20for%20free%21%20No%20coding%20required%21%0A%F0%9F%8E%81%20Fully%20customizable%2C%20easy%20to%20deploy%20with%20your%20own%20website%20name%0A%E2%9C%A8%20Try%20it%20now%3A%20https%3A%2F%2Fgithub.com%2FEnd2EndAI%2Fvalentine-website-2025%0A%23ValentinesDay2025%20%23WebDev%20%23GitHub%20%23Love)
+# 💖 Love Week 2026 — Divya ❤️ Smit
 
-A beautiful, interactive Valentine's Day website generator to ask your special someone to be your Valentine! Create your own personalized version in minutes. Perfect for Valentine's Day 2026! 💝
-Follow below the tutorial how to custom the website and get your custom URL and access your website on the internet from everywhere !
+A private Valentine Week experience built as a time-locked interactive website.
 
-🌟 **[Live Demo]([https://smitsavaliya-1258.github.io/love-week-2026/])**
+From **7th February to 14th February**, one chapter unlocks each day.
+No rushing. No skipping ahead. Just a slow build through memories, promises, and moments.
 
-## 🌟 Share The Love
+---
 
-If you liked it, please :
-- ⭐ Star this repository if you like it
-- 🔄 Fork it to create your own version
+## 🌸 Concept
 
-## ✨ Features
-- 💖 Floating hearts and bears
-- 🎵 Custom music
-- 📏 Love meter that goes beyond 100%
-- 🏃‍♂️ Playful buttons that run away
-- 🎁 Hidden answer for the first question, "Do you like me?"
-- 🎉 Grand celebration when they say yes!
+This project is designed as:
 
-## 🚀 Quick Start Guide
+* 📅 **Date-locked daily chapters** (7 Feb → 14 Feb)
+* 🔒 Cards unlock only on the correct day (Asia/Kolkata time)
+* 🎮 Light interaction (no annoying games)
+* 💌 Minimal, aesthetic, calm UI
+* ❤️ Personal messages inside each day
 
-### 1. Get Your Own Copy
-1. Click the "Fork" button at the top right of this page or [click here](https://github.com/End2EndAI/valentine-website-2025/fork)
-2. Wait a few seconds while GitHub creates your copy
-3. You now have your own version of the code!
+Each card represents a day in Valentine Week:
 
-Note: Make sure you're logged into your GitHub account. If you don't have one, you can [create a free account here](https://github.com/signup).
+| Date   | Day             | Interaction Type    |
+| ------ | --------------- | ------------------- |
+| 7 Feb  | Rose Day        | Secret Unlock       |
+| 8 Feb  | Propose Day     | Choice Interaction  |
+| 9 Feb  | Chocolate Day   | Slider Response     |
+| 10 Feb | Teddy Day       | Private Letter      |
+| 11 Feb | Promise Day     | Commitment Check    |
+| 12 Feb | Hug Day         | Memory Reveal       |
+| 13 Feb | Kiss Day        | Reflective Question |
+| 14 Feb | Valentine’s Day | Final Reveal        |
 
-### 2. Customize for Your Valentine
+---
 
-#### Easy Way (Recommended)
-1. In your new repository, click on `config.js`
-2. Click the pencil icon (✏️) to edit
-3. Change the values to personalize your website
-4. Click "Commit changes" at the bottom
+## 🛠 Tech Stack
 
-Here's what you can customize in `config.js`:
-```javascript
-// Basic Information
-valentineName: "Jade"                    // Your Valentine's name
-pageTitle: "Will You Be My Valentine? 💝" // Browser tab title
+* HTML
+* CSS (Glassmorphism UI)
+* Vanilla JavaScript
+* LocalStorage (for daily progression)
+* GitHub Pages (Hosting)
 
-// Floating Background Elements
-floatingEmojis: {
-    hearts: ['❤️', '💖', '💝', '💗', '💓'],  // Heart emojis in background
-    bears: ['🧸', '🐻']                       // Bear emojis in background
-}
+No backend. No frameworks. Clean and lightweight.
 
-// Questions and Buttons
-questions: {
-    first: {
-        text: "Do you like me?",                   // First question
-        yesBtn: "Yes",                             // Yes button text
-        noBtn: "No",                               // No button text
-        secretAnswer: "I don't like you, I love you! ❤️"  // Hidden message
-    },
-    second: {
-        text: "How much do you love me?",          // Second question
-        startText: "This much!",                   // Text before percentage
-        nextBtn: "Next ❤️"                         // Next button text
-    },
-    third: {
-        text: "Will you be my Valentine...?",      // Final question
-        yesBtn: "Yes!",                            // Yes button text
-        noBtn: "No"                                // No button text
-    }
-}
+---
 
-// Love Meter Messages
-loveMessages: {
-    extreme: "WOOOOW You love me that much?? 🥰🚀💝",  // Shows above 5000%
-    high: "To infinity and beyond! 🚀💝",              // Shows above 1000%
-    normal: "And beyond! 🥰"                           // Shows above 100%
-}
+## 🔐 Unlock Logic
 
-// Final Celebration
-celebration: {
-    title: "Yay! I'm the luckiest person...",     // Celebration title
-    message: "Now come get your gift...",          // Celebration message
-    emojis: "🎁💖🤗💝💋❤️💕"                        // Celebration emojis
-}
+* Date comparison uses **Asia/Kolkata timezone**
+* Cards unlock only if:
 
-// Website Colors
-colors: {
-    backgroundStart: "#ffafbd",      // Background gradient start
-    backgroundEnd: "#ffc3a0",        // Background gradient end
-    buttonBackground: "#ff6b6b",     // Button color
-    buttonHover: "#ff8787",          // Button hover color
-    textColor: "#ff4757"            // Text color
-}
+  * The current date matches or exceeds unlock date
+  * The previous day has been completed
+* Completion status is stored in `localStorage`
 
-// Animation Settings
-animations: {
-    floatDuration: "15s",           // How long hearts float (10-20s)
-    floatDistance: "50px",          // Sideways movement (30-70px)
-    bounceSpeed: "0.5s",            // Bounce animation speed (0.3-0.7s)
-    heartExplosionSize: 1.5         // Final heart explosion size (1.2-2.0)
-}
+---
 
-// Music Settings
-music: {
-    enabled: true, // Music feature is enabled
-    autoplay: true, // Try to autoplay (note: some browsers may block this)
-    musicUrl: "YOUR_CLOUDINARY_URL_HERE", // Paste your music URL here
-    startText: "🎵 Play Music", // Button text to start music
-    stopText: "🔇 Stop Music", // Button text to stop music
-    volume: 0.5 // Volume level (0.0 to 1.0)
-}
+## 🚀 Deployment
+
+Hosted using **GitHub Pages**
+
+Live site:
+
+```
+https://smitsavaliya-1258.github.io/love-week-2026/
 ```
 
-### 3. Adding Your Own Background Music 🎵
+To deploy:
 
-Want to make it extra special with your own romantic song? Follow these steps to add background music:
+1. Go to Repo → Settings
+2. Open Pages
+3. Set Source to `main` branch
+4. Root folder `/`
+5. Save
 
-1. **Get a Cloudinary Account (Free):**
-   - Go to [Cloudinary.com](https://cloudinary.com) and sign up for a free account
+---
 
-2. **Upload Your Music:**
-   - Log in to your Cloudinary dashboard
-   - Click on the "Upload" button in the top right
-   - Select "Upload" from the dropdown menu
-   - Choose your MP3 file (keep it under 10MB for better loading)
-   - Wait for the upload to complete
+## 🧪 Testing
 
-3. **Get Your Music URL:**
-   - After upload, find your music file in the Media Library
-   - Click the "..." (more options) button on your music file
-   - Click "Copy URL"
-   - Select "Copy Original URL with options"
-   - The URL should look like: `https://res.cloudinary.com/your-cloud-name/video/upload/v1234567890/your-file-name.mp3`
+To test unlock behavior:
 
-4. **Add to Your Website:**
-   - Open `config.js`
-   - Find the `music` section
-   - Replace the `musicUrl` value with your Cloudinary URL
+* Temporarily change system date
+* Or modify dates in `week.js`
+* Clear localStorage if needed
 
-### 4. Make It Live! (Get your online website URL)
+Reset progress using browser console:
 
-#### Using GitHub Pages (Free)
-1. Go to your repository's "Settings"
-2. Click "Pages" in the left sidebar
-3. Under "Source", select "main" branch
-4. Click "Save"
-5. Wait a few minutes
-6. Your site will be live at: `https://your-username.github.io/repository-name`
+```js
+Object.keys(localStorage).forEach(k => {
+  if (k.startsWith("done_")) localStorage.removeItem(k);
+});
+location.reload();
+```
 
-## 💡 Tips
-- Test the website before sending it to your Valentine
-- Try all the buttons and interactions
-- Check how it looks on mobile phones
+---
 
-## 💖 Credits
-Created with love for Valentine's Day 2026.
-Feel free to use and modify for your special someone!
+## 💡 Design Philosophy
 
-\- Smit Savaliya -
+* Simple > Loud
+* Intentional > Flashy
+* Emotional > Over-engineered
+* Controlled interactions (no irritation)
 
-## 📜 License
-MIT License - Feel free to use this for your Valentine! 
+This is not meant to be a game.
+It’s meant to feel personal.
+
+---
+
+## ❤️ Personal Note
+
+Built by **Smit**
+For **Divya**
+
+One chapter per day.
+One choice, every day.
+
+---
