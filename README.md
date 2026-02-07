@@ -8,14 +8,13 @@
 A beautiful, interactive Valentine's Day website generator to ask your special someone to be your Valentine! Create your own personalized version in minutes. Perfect for Valentine's Day 2026! 💝
 Follow below the tutorial how to custom the website and get your custom URL and access your website on the internet from everywhere !
 
-🌟 **[Live Demo](https://end2endai.github.io/valentine-website-2025)** | 🚀 **[Quick Start](#-quick-start-guide)** | 🌐 **[Deploy Your Website](#4-make-it-live-get-your-online-website-url)**
+🌟 **[Live Demo]([https://end2endai.github.io/valentine-website-2025](https://smitsavaliya-1258.github.io/love-week-2026/))**
 
 ## 🌟 Share The Love
 
 If you liked it, please :
 - ⭐ Star this repository if you like it
 - 🔄 Fork it to create your own version
-- 🔥 Like and follow on instagram for more websites : [Instagram]([https://www.instagram.com/ai_cute_apps/](https://www.instagram.com/reel/DFh3ZaxtrYX/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==))
 
 ## ✨ Features
 - 💖 Floating hearts and bears
@@ -142,17 +141,6 @@ Want to make it extra special with your own romantic song? Follow these steps to
    - Find the `music` section
    - Replace the `musicUrl` value with your Cloudinary URL
 
-```javascript
-music: {
-    enabled: true,
-    autoplay: true,
-    musicUrl: "YOUR_CLOUDINARY_URL_HERE", // Paste your URL here
-    startText: "🎵 Play Music",
-    stopText: "🔇 Stop Music",
-    volume: 0.5
-}
-```
-
 ### 4. Make It Live! (Get your online website URL)
 
 #### Using GitHub Pages (Free)
@@ -163,35 +151,16 @@ music: {
 5. Wait a few minutes
 6. Your site will be live at: `https://your-username.github.io/repository-name`
 
-#### Using Netlify (Free, Recommended, Custom URL)
-1. Go to [Netlify](https://www.netlify.com/)
-2. Sign up for a free account
-3. Click "Add new site" → "Import an existing project"
-4. Choose your GitHub repository
-5. Click "Deploy site"
-6. Once deployed, click "Domain settings"
-7. Choose a custom domain (e.g., `my-valentine-2025.netlify.app`)
-
 ## 💡 Tips
 - Test the website before sending it to your Valentine
 - Try all the buttons and interactions
 - Check how it looks on mobile phones
 
-## 🎨 Want Different Colors?
-Use these tools to find beautiful colors:
-- [Coolors](https://coolors.co/) - Color palette generator
-- [ColorHunt](https://colorhunt.co/) - Color palettes
-
-## 🔍 Need More Emojis?
-Find more emojis at:
-- [EmojiKeyboard](https://emojikeyboard.top/fr/)
-- [Emojipedia](https://emojipedia.org/)
-
 ## 💖 Credits
 Created with love for Valentine's Day 2026.
 Feel free to use and modify for your special someone!
 
-\- Louis Fontaine -
+\- Smit Savaliya -
 
 ## 📜 License
 MIT License - Feel free to use this for your Valentine! 
