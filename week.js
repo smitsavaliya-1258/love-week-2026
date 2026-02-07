@@ -112,7 +112,7 @@ function openDay(d) {
       const v = (document.getElementById("ans").value || "").trim().toLowerCase();
 
       // CHANGE THIS:
-      const SECRET = "change-this-to-your-inside-answer";
+      const SECRET = "Cupcake";
 
       if (v === SECRET) {
         markDone(d.id);
@@ -187,7 +187,33 @@ function openDay(d) {
       `
         <div class="success">
           Divya,<br><br>
-          (Replace this with your 8–12 lines. Specific. Real.)<br><br>
+          (Divya,
+
+If I could send you something right now, it wouldn’t just be a teddy.
+It would be something that holds you when I can’t.
+
+Something that stays quiet when you’re tired.
+Something that listens when you overthink.
+Something that reminds you — you’re not alone in anything.
+
+You don’t always say when you’re stressed.
+You don’t always ask for comfort.
+But I notice.
+
+And even when I’m not physically there, I want you to feel safe.
+With me. Around me. Because of me.
+
+So today isn’t about a stuffed toy.
+
+It’s about this —
+If the day feels heavy, imagine I’m sitting next to you.
+No advice. No fixing. Just presence.
+
+That’s what I want to be in your life.
+
+Always.
+
+— Smit)<br><br>
           — Smit
         </div>
         <div class="row"><button class="btn primary" id="done">I read it</button></div>
