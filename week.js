@@ -238,18 +238,19 @@ Keep this hug with you today. It’s mine. 🧸❤️<br><br>
   }
 
   if (d.type === "reveal") {
-    openModal(
-      `${fmt(d.date)} · ${d.title}`,
-      `Tap to reveal.`,
-      `
-        <div class="row">
-          <button class="btn primary rv">Memory 1: Travel 🌄</button>
-          <button class="btn primary rv">Memory 2: Close 🤍</button>
-        </div>
-        <div id="msg"></div>
-      `
-    );
-    const memories = [
+  openModal(
+    `${fmt(d.date)} · ${d.title}`,
+    `Tap to reveal.`,
+    `
+      <div class="row">
+        <button class="btn primary rv" data-idx="0">Memory 1: Travel 🌄</button>
+        <button class="btn primary rv" data-idx="1">Memory 2: Close 🤍</button>
+      </div>
+      <div id="msg"></div>
+    `
+  );
+
+  const memories = [
     {
       img: "memories/MEM_1.png",
       text: "That day with the mountains behind us and no stress around us. Just you, me, and peace. 🌄💚"
@@ -262,23 +263,22 @@ Keep this hug with you today. It’s mine. 🧸❤️<br><br>
 
   const out = document.getElementById("msg");
 
-  Array.from(document.querySelectorAll(".rv")).forEach(btn => {
+  // Attach listeners to the buttons after they are added to the DOM
+  document.querySelectorAll(".rv").forEach(btn => {
     btn.onclick = () => {
-      const i = btn.dataset.i;
+      const i = btn.getAttribute("data-idx"); // Get the index we stored
       out.innerHTML = `
         <div class="success">
           <img src="${memories[i].img}" 
-               style="width:100%; border-radius:16px; margin-bottom:10px;" />
+               style="width:100%; border-radius:16px; margin-top:15px; margin-bottom:10px;" />
           <div>${memories[i].text}</div>
         </div>
       `;
+      markDone(d.id); // Mark the day as completed once a memory is seen
     };
   });
-
-  markDone(d.id);
-  renderCards();
   return;
-  }
+}
 
   if (d.type === "question") {
     openModal(
