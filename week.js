@@ -109,21 +109,29 @@ function openDay(d) {
     );
 
     document.getElementById("go").onclick = () => {
-      const v = (document.getElementById("ans").value || "").trim().toLowerCase();
+  const v = (document.getElementById("ans").value || "")
+    .trim()
+    .toLowerCase()
+    .replace(/\s+/g, " ");
 
-      // CHANGE THIS:
-      const SECRET = "Cupcake";
+  const SECRET_LIST = [
+    "cupcake",
+    "cup cake",
+    "cupcake❤️",
+    "cupcake ❤"
+  ];
 
-      if (v === SECRET) {
-        markDone(d.id);
-        document.getElementById("msg").innerHTML =
-          `<div class="success">Unlocked ❤️<br><span class="tiny">I love how it’s always you. — Smit</span></div>`;
-      } else {
-        document.getElementById("msg").innerHTML = `<div class="warn">Not that 😄 Try again.</div>`;
-      }
-      renderCards();
-    };
-    return;
+  if (SECRET_LIST.includes(v)) {
+    markDone(d.id);
+    document.getElementById("msg").innerHTML =
+      `<div class="success">Unlocked ❤️<br><span class="tiny">I love how it’s always you. — Smit</span></div>`;
+    renderCards();
+  } else {
+    document.getElementById("msg").innerHTML =
+      `<div class="warn">Not that 😄 Try again.</div>`;
+  }
+};
+return;
   }
 
   if (d.type === "choose") {
@@ -170,7 +178,7 @@ function openDay(d) {
       let msg = "Hmm.";
       if (n <= 20) msg = "Liar 🙂";
       else if (n <= 60) msg = "Acceptable.";
-      else if (n = 69) msg = "Seriously 69 😲";
+      else if (n === 69) msg = "Seriously 69 😲";
       else if (n <= 90) msg = "Good. I miss you too.";
       else msg = "That’s my girl. ❤️";
       val.innerHTML = `<div class="success">${n}% — ${msg}</div>`;
