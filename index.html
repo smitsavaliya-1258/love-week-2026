@@ -16,6 +16,15 @@
     .week-title p { opacity: 0.85; margin: 10px 0 0; }
     .success img { box-shadow: 0 10px 30px rgba(0,0,0,0.15); transition: transform 0.3s ease; }
     .success img:hover { transform: scale(1.02); }
+    .cursor-emoji {
+      position: fixed;
+      pointer-events: none;
+      font-size: 28px;
+      transform: translate(-50%, -50%);
+      z-index: 9999;
+      display: none;
+      transition: transform 0.05s linear;
+    }
 
     .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin-top: 20px; }
     @media (min-width: 720px) { .grid { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
@@ -123,5 +132,6 @@
   <!-- keep your theme / background effects if present -->
   <script src="./theme.js"></script>
   <script src="./week.js"></script>
+  <div id="cursorEmoji" class="cursor-emoji">❤️</div>
 </body>
 </html>
