@@ -238,6 +238,18 @@ Keep this hug with you today. It’s mine. 🧸❤️<br><br>
   }
 
   if (d.type === "reveal") {
+    openModal(
+      `${fmt(d.date)} · ${d.title}`,
+      `Tap to reveal.`,
+      `
+        <div class="row">
+          <button class="btn primary rv">Memory 1 🌄</button>
+          <button class="btn primary rv">Memory 2 🤍</button>
+        </div>
+        <div id="msg"></div>
+      `
+    );
+
     const memories = [
       {
         img: "memories/MEM_1.png",
@@ -249,42 +261,23 @@ Keep this hug with you today. It’s mine. 🧸❤️<br><br>
       }
     ];
 
-    openModal(
-      `${fmt(d.date)} · ${d.title}`,
-      `Tap to reveal a memory.`,
-      `
-        <div class="row" style="display:flex; gap:10px; justify-content:center;">
-          <button class="btn primary rv-btn" data-idx="0">Memory 1: Travel 🌄</button>
-          <button class="btn primary rv-btn" data-idx="1">Memory 2: Close 🤍</button>
-        </div>
-        <div id="reveal-target" style="margin-top:20px; text-align:center;"></div>
-      `
-    );
+    const out = document.getElementById("msg");
 
-    // FIX: Attach the listener to the parent container (mBody) 
-    // This works even if buttons are added dynamically!
-    const body = document.getElementById("mBody");
-    const target = document.getElementById("reveal-target");
+    // This is the click logic you prefer:
+    Array.from(document.querySelectorAll(".rv")).forEach((b, i) => {
+      b.onclick = () => { 
+        out.innerHTML = `
+          <div class="success">
+            <img src="${memories[i].img}" 
+                 style="width:100%; border-radius:12px; margin-bottom:8px;" 
+                 onerror="this.src='https://via.placeholder.com/300?text=Check+Image+Path'"/>
+            <div>${memories[i].text}</div>
+          </div>`; 
+      };
+    });
 
-    body.onclick = (e) => {
-      // Check if the clicked element is one of our buttons
-      const btn = e.target.closest(".rv-btn");
-      if (!btn) return;
-
-      const i = btn.getAttribute("data-idx");
-      
-      target.innerHTML = `
-        <div class="success" style="animation: fadeIn 0.5s ease;">
-          <img src="${memories[i].img}" 
-               style="width:100%; border-radius:16px; margin-bottom:10px;" 
-               onerror="this.src='https://via.placeholder.com/400x300?text=Image+Not+Found+Check+Folder'"/>
-          <div style="font-style: italic;">${memories[i].text}</div>
-        </div>
-      `;
-      
-      markDone(d.id);
-      renderCards();
-    };
+    markDone(d.id);
+    renderCards();
     return;
   }
 
