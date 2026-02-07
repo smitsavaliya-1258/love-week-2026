@@ -141,13 +141,13 @@ function openDay(d) {
     document.getElementById("a").onclick = () => {
       markDone(d.id);
       document.getElementById("msg").innerHTML =
-        `<div class="success">Done.<br><span class="tiny">Now send her a voice note: “Divya, I’m proud of you. I’m with you.”</span></div>`;
+        `<div class="success">Done.<br><span class="tiny">Divya, I’m proud of you. I’m with you.</span></div>`;
       renderCards();
     };
     document.getElementById("b").onclick = () => {
       markDone(d.id);
       document.getElementById("msg").innerHTML =
-        `<div class="success">Done.<br><span class="tiny">Now text her: “I choose you. Even on boring days.”</span></div>`;
+        `<div class="success">Done.<br><span class="tiny">I choose you. Even on boring days.</span></div>`;
       renderCards();
     };
     return;
@@ -170,6 +170,7 @@ function openDay(d) {
       let msg = "Hmm.";
       if (n <= 20) msg = "Liar 🙂";
       else if (n <= 60) msg = "Acceptable.";
+      else if (n = 69) msg = "Seriously 69 😲";
       else if (n <= 90) msg = "Good. I miss you too.";
       else msg = "That’s my girl. ❤️";
       val.innerHTML = `<div class="success">${n}% — ${msg}</div>`;
@@ -186,35 +187,21 @@ function openDay(d) {
       `Open this when you’re alone for 2 minutes.`,
       `
         <div class="success">
-          Divya,<br><br>
-          (Divya,
+          Divya 🧸❤️<br><br>
 
-If I could send you something right now, it wouldn’t just be a teddy.
-It would be something that holds you when I can’t.
+Happy Teddy Day, my love. 🤍<br><br>
 
-Something that stays quiet when you’re tired.
-Something that listens when you overthink.
-Something that reminds you — you’re not alone in anything.
+If I could send you something today, it wouldn’t just be a teddy… it would be something that hugs you when I can’t. Something that sits beside you when you’re tired. Something that quietly reminds you that you’re never alone. 🫂✨<br><br>
 
-You don’t always say when you’re stressed.
-You don’t always ask for comfort.
-But I notice.
+You don’t always say when you’re stressed. You don’t always show when you need comfort. But I notice. And even from a distance, I want to be the one you feel safe with. 💛<br><br>
 
-And even when I’m not physically there, I want you to feel safe.
-With me. Around me. Because of me.
+So imagine this teddy is just a symbol — soft, warm, steady. That’s what I want to be in your life. Not loud. Not dramatic. Just there. Always. 🌸<br><br>
 
-So today isn’t about a stuffed toy.
+On days when you overthink, I’ll calm you. On days when you’re strong, I’ll admire you. And on normal days, I’ll still choose you. Every time. 🤎<br><br>
 
-It’s about this —
-If the day feels heavy, imagine I’m sitting next to you.
-No advice. No fixing. Just presence.
+Keep this hug with you today. It’s mine. 🧸❤️<br><br>
 
-That’s what I want to be in your life.
-
-Always.
-
-— Smit)<br><br>
-          — Smit
+— Smit 🌹
         </div>
         <div class="row"><button class="btn primary" id="done">I read it</button></div>
       `
@@ -279,7 +266,7 @@ Always.
         <div class="success">
           “What’s one thing I can do that would make you feel loved this week?”
         </div>
-        <div class="tiny" style="margin-top:10px;">Reply to Smit with one line. That’s the game.</div>
+        <div class="tiny" style="margin-top:10px;">Reply to Smit with one line on Whatsapp. That’s the game.</div>
         <div class="row"><button class="btn primary" id="done">Done</button></div>
       `
     );
@@ -293,10 +280,23 @@ Always.
     `You made it. Final unlock.`,
     `
       <div class="success">
-        Divya,<br><br>
-        (Final message here.)<br><br>
-        Add: your video link / playlist link / gift link.<br><br>
-        — Smit
+        Divya ❤️<br><br>
+
+Happy Valentine’s Day, my love. 🌹✨<br><br>
+
+This week was just a small reminder of something I feel every single day — I choose you. Not just on special days. Not just when things are easy. But in the quiet moments, the stressful days, and even the boring ones. 💛<br><br>
+
+You make my life calmer, stronger, and brighter — without even trying. The way you think, the way you care, the way you handle things… I genuinely admire you. 🫶<br><br>
+
+Distance doesn’t scare me. Time doesn’t scare me. The only thing that matters is that at the end of every day, it’s still us. 💍✨<br><br>
+
+Thank you for being patient with me. Thank you for choosing me back. Thank you for being my safe place. 🤍<br><br>
+
+No matter how busy life gets, no matter how far we are physically — I’m here. Always.<br><br>
+
+I love you, Divya. Today. Tomorrow. And every ordinary day in between. ❤️🌹<br><br>
+
+— Smit 💌
       </div>
       <div class="row"><button class="btn primary" id="done">Finish ❤️</button></div>
     `
