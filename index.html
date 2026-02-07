@@ -82,13 +82,14 @@
     }
     .mem-img{
       width: 100%;
-      max-width: 420px;   /* desktop limit */
-      max-height: 55vh;   /* mobile safety */
-      height: auto;
+      max-width: 420px;     /* desktop limit */
+      max-height: 65vh;     /* mobile limit */
+      height: auto;         /* keep natural portrait ratio */
       display: block;
       margin: 12px auto 10px;
       border-radius: 16px;
-      object-fit: contain; /* shows full image without cropping */
+      object-fit: contain;  /* IMPORTANT: no crop */
+      background: rgba(0,0,0,0.04); /* nice subtle frame */
       box-shadow: 0 15px 35px rgba(0,0,0,0.15);
     }
     .tiny { font-size: 0.85rem; opacity: 0.75; }
