@@ -1,77 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- CUSTOMIZE: Browser tab title -->
-    <title>Will You Be My Valentine? 💝</title>
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <!-- Styles -->
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Divya ❤️ Smit</title>
+
+  <!-- keep the original template styling -->
+  <link rel="stylesheet" href="./styles.css" />
+
+  <style>
+    /* clean “cards dashboard” layout (doesn't fight your template CSS) */
+    .week-wrap { max-width: 980px; margin: 0 auto; padding: 28px 18px 64px; }
+    .week-title { text-align: center; margin: 10px 0 22px; }
+    .week-title h1 { font-size: 2rem; margin: 0; }
+    .week-title p { opacity: 0.85; margin: 10px 0 0; }
+
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin-top: 20px; }
+    @media (min-width: 720px) { .grid { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+
+    .daycard {
+      border-radius: 18px;
+      padding: 14px 14px 16px;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.15s ease, opacity 0.15s ease;
+      background: rgba(255,255,255,0.65);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.35);
+    }
+    .daycard:hover { transform: translateY(-2px); }
+
+    .daycard .date { font-weight: 700; }
+    .daycard .label { margin-top: 6px; opacity: 0.9; font-size: 0.95rem; }
+    .daycard .hint { margin-top: 10px; opacity: 0.7; font-size: 0.85rem; }
+
+    .locked { cursor: not-allowed; opacity: 0.55; filter: grayscale(0.15); }
+    .lockbadge {
+      position: absolute; right: 12px; top: 12px;
+      font-size: 0.9rem; opacity: 0.9;
+      background: rgba(0,0,0,0.08);
+      padding: 6px 10px; border-radius: 999px;
+    }
+
+    /* modal */
+    .modal-backdrop {
+      display: none;
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,0.35);
+      align-items: center; justify-content: center;
+      padding: 16px;
+      z-index: 50;
+    }
+    .modal {
+      width: min(560px, 100%);
+      border-radius: 20px;
+      padding: 18px;
+      background: rgba(255,255,255,0.92);
+      border: 1px solid rgba(255,255,255,0.45);
+      backdrop-filter: blur(10px);
+    }
+    .modal h2 { margin: 0 0 10px; }
+    .modal p { margin: 10px 0; opacity: 0.9; line-height: 1.45; }
+    .row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 12px; }
+    .btn {
+      border: 0; border-radius: 12px; padding: 10px 12px;
+      cursor: pointer; background: rgba(0,0,0,0.08);
+    }
+    .btn.primary { background: rgba(201, 24, 74, 0.15); }
+    .input {
+      width: 100%;
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid rgba(0,0,0,0.12);
+      background: rgba(255,255,255,0.9);
+      outline: none;
+    }
+    .tiny { font-size: 0.85rem; opacity: 0.75; }
+    .success { margin-top: 10px; padding: 10px 12px; border-radius: 12px; background: rgba(0, 150, 120, 0.12); }
+    .warn { margin-top: 10px; padding: 10px 12px; border-radius: 12px; background: rgba(200, 120, 0, 0.14); }
+  </style>
 </head>
+
 <body>
-    <!-- Floating Background Elements -->
-    <div class="floating-elements">
-        <!-- Hearts and bears will be added here by JavaScript -->
+  <div class="week-wrap">
+    <div class="week-title">
+      <h1>Seven Chapters. One Us.</h1>
+      <p>Hi Divya — one card unlocks each day from <b>7 Feb</b> to <b>14 Feb</b>.</p>
+      <p class="tiny">— Smit</p>
     </div>
 
-    <!-- Main Content Container -->
-    <div class="container">
-        <h1 id="valentineTitle"></h1>
-        
-        <!-- Music Player -->
-        <div id="musicControls" class="music-controls">
-            <button id="musicToggle" class="music-btn">🎵 Play Music</button>
-            <audio id="bgMusic" loop>
-                <source id="musicSource" type="audio/mpeg">
-                Your browser does not support the audio element.
-            </audio>
-        </div>
+    <div id="grid" class="grid"></div>
+  </div>
 
-        <!-- First Question -->
-        <div class="question-section" id="question1">
-            <h2 id="question1Text"></h2>
-            <button class="cute-btn" onclick="moveButton(this)" id="yesBtn1"></button>
-            <button class="cute-btn" onclick="moveButton(this)" id="noBtn1"></button>
-            <!-- CUSTOMIZE: Secret answer text -->
-            <div class="secret-answer">
-                <button class="cute-btn special" onclick="showNextQuestion(2)" id="secretAnswerBtn"></button>
-            </div>
-        </div>
-
-        <!-- Second Question (Love Meter) -->
-        <div class="question-section hidden" id="question2">
-            <h2 id="question2Text"></h2>
-            <!-- Love meter settings: min="0" max="10000" -->
-            <div class="love-meter">
-                <input type="range" min="0" max="10000" value="100" class="slider" id="loveMeter">
-                <p>
-                    <span class="love-value-container"><span id="startText"></span> (<span id="loveValue">100</span>%)</span>
-                    <span id="extraLove" class="hidden"></span>
-                </p>
-            </div>
-            <button class="cute-btn" onclick="showNextQuestion(3)" id="nextBtn"></button>
-        </div>
-
-        <!-- Final Question -->
-        <div class="question-section hidden" id="question3">
-            <h2 id="question3Text"></h2>
-            <button class="cute-btn final-yes" onclick="celebrate()" id="yesBtn3"></button>
-            <button class="cute-btn" onclick="moveButton(this)" id="noBtn3"></button>
-        </div>
-
-        <!-- CUSTOMIZE: Celebration message -->
-        <div class="celebration hidden" id="celebration">
-            <h2 id="celebrationTitle"></h2>
-            <p class="celebration-text" id="celebrationMessage"></p>
-            <p class="celebration-text" id="celebrationEmojis"></p>
-        </div>
+  <div id="backdrop" class="modal-backdrop" role="dialog" aria-modal="true">
+    <div class="modal">
+      <h2 id="mTitle"></h2>
+      <p id="mText"></p>
+      <div id="mBody"></div>
+      <div class="row" style="justify-content: flex-end;">
+        <button class="btn" id="closeBtn">Close</button>
+      </div>
     </div>
+  </div>
 
-    <!-- Scripts -->
-    <script src="config.js"></script>
-    <script src="theme.js"></script>
-    <script src="script.js"></script>
+  <!-- keep your theme / background effects if present -->
+  <script src="./theme.js"></script>
+  <script src="./week.js"></script>
 </body>
-</html> 
+</html>
