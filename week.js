@@ -245,25 +245,39 @@ Keep this hug with you today. It’s mine. 🧸❤️<br><br>
         <div class="row">
           <button class="btn primary rv">Memory 1</button>
           <button class="btn primary rv">Memory 2</button>
-          <button class="btn primary rv">Memory 3</button>
         </div>
         <div id="msg"></div>
       `
     );
-    const msgs = [
-      "(Replace with a real memory 1)",
-      "(Replace with a real memory 2)",
-      "(Replace with a real memory 3)",
-    ];
-    const out = document.getElementById("msg");
-    Array.from(document.querySelectorAll(".rv")).forEach((b, i) => {
-      b.onclick = () => { out.innerHTML = `<div class="success">${msgs[i]}</div>`; };
-    });
+    const memories = [
+    {
+      img: "memories/MEM_1.png",
+      text: "That day with the mountains behind us and no stress around us. Just you, me, and peace. 🌄💚"
+    },
+    {
+      img: "memories/MEM_2.png",
+      text: "When we’re this close, everything else fades. It’s not just happiness — it’s comfort. 🤍✨"
+    }
+  ];
 
-    // Completing this day just by opening keeps it non-annoying
-    markDone(d.id);
-    renderCards();
-    return;
+  const out = document.getElementById("msg");
+
+  Array.from(document.querySelectorAll(".rv")).forEach(btn => {
+    btn.onclick = () => {
+      const i = btn.dataset.i;
+      out.innerHTML = `
+        <div class="success">
+          <img src="${memories[i].img}" 
+               style="width:100%; border-radius:16px; margin-bottom:10px;" />
+          <div>${memories[i].text}</div>
+        </div>
+      `;
+    };
+  });
+
+  markDone(d.id);
+  renderCards();
+  return;
   }
 
   if (d.type === "question") {
