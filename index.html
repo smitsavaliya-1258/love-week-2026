@@ -54,11 +54,13 @@
       padding: 16px;
       z-index: 50;
     }
-    .modal {
-      width: min(560px, 100%);
+    .modal{
+      width: min(92vw, 560px);
+      max-height: 85vh;
+      overflow-y: auto;
       border-radius: 20px;
       padding: 18px;
-      background: rgba(255,255,255,0.92);
+      background: rgba(255,255,255,0.95);
       border: 1px solid rgba(255,255,255,0.45);
       backdrop-filter: blur(10px);
     }
@@ -80,13 +82,13 @@
     }
     .mem-img{
       width: 100%;
-      max-width: 420px;        /* keeps it neat on desktop */
-      max-height: 55vh;        /* stops it from taking full screen on mobile */
+      max-width: 420px;   /* desktop limit */
+      max-height: 55vh;   /* mobile safety */
       height: auto;
       display: block;
-      margin: 10px auto 8px;   /* centers image */
+      margin: 12px auto 10px;
       border-radius: 16px;
-      object-fit: cover;       /* crops nicely if needed */
+      object-fit: contain; /* shows full image without cropping */
       box-shadow: 0 15px 35px rgba(0,0,0,0.15);
     }
     .tiny { font-size: 0.85rem; opacity: 0.75; }
