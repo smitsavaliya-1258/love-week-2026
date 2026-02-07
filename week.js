@@ -243,8 +243,8 @@ Keep this hug with you today. It’s mine. 🧸❤️<br><br>
       `Tap to reveal.`,
       `
         <div class="row">
-          <button class="btn primary rv">Memory 1</button>
-          <button class="btn primary rv">Memory 2</button>
+          <button class="btn primary rv">Memory 1: Travel 🌄</button>
+          <button class="btn primary rv">Memory 2: Close 🤍</button>
         </div>
         <div id="msg"></div>
       `
