@@ -3,7 +3,7 @@
 // Locking uses Asia/Kolkata date (not device timezone)
 
 const DAYS = [
-  { id: "d1", date: "2026-02-10", title: "Rose Day",       label: "One small key 🔑",     type: "code" },
+  { id: "d1", date: "2026-10-10", title: "Rose Day",       label: "One small key 🔑",     type: "code" },
   { id: "d2", date: "2026-02-10", title: "Propose Day",    label: "Pick one",            type: "choose" },
   { id: "d3", date: "2026-02-10", title: "Chocolate Day",  label: "A slider truth",      type: "slider" },
   { id: "d4", date: "2026-02-10", title: "Teddy Day",      label: "A soft letter",       type: "letter" },
