@@ -238,51 +238,55 @@ Keep this hug with you today. It’s mine. 🧸❤️<br><br>
   }
 
   if (d.type === "reveal") {
-  openModal(
-    `${fmt(d.date)} · ${d.title}`,
-    `Tap to reveal a memory.`,
-    `
-      <div class="row" style="display:flex; gap:10px; justify-content:center;">
-        <button class="btn primary rv" data-idx="0">Memory 1: Travel 🌄</button>
-        <button class="btn primary rv" data-idx="1">Memory 2: Close 🤍</button>
-      </div>
-      <div id="msg" style="margin-top:20px;"></div>
-    `
-  );
+    const memories = [
+      {
+        img: "memories/MEM_1.png",
+        text: "That day with the mountains behind us and no stress around us. Just you, me, and peace. 🌄💚"
+      },
+      {
+        img: "memories/MEM_2.png",
+        text: "When we’re this close, everything else fades. It’s not just happiness — it’s comfort. 🤍✨"
+      }
+    ];
 
-  const memories = [
-    {
-      img: "memories/MEM_1.png",
-      text: "That day with the mountains behind us and no stress around us. Just you, me, and peace. 🌄💚"
-    },
-    {
-      img: "memories/MEM_2.png",
-      text: "When we’re this close, everything else fades. It’s not just happiness — it’s comfort. 🤍✨"
-    }
-  ];
+    openModal(
+      `${fmt(d.date)} · ${d.title}`,
+      `Tap to reveal a memory.`,
+      `
+        <div class="row" style="display:flex; gap:10px; justify-content:center;">
+          <button class="btn primary rv-btn" data-idx="0">Memory 1: Travel 🌄</button>
+          <button class="btn primary rv-btn" data-idx="1">Memory 2: Close 🤍</button>
+        </div>
+        <div id="reveal-target" style="margin-top:20px; text-align:center;"></div>
+      `
+    );
 
-  // Logic to handle the click
-  const buttons = document.querySelectorAll(".rv");
-  const out = document.getElementById("msg");
+    // FIX: Attach the listener to the parent container (mBody) 
+    // This works even if buttons are added dynamically!
+    const body = document.getElementById("mBody");
+    const target = document.getElementById("reveal-target");
 
-  buttons.forEach(btn => {
-    btn.onclick = () => {
+    body.onclick = (e) => {
+      // Check if the clicked element is one of our buttons
+      const btn = e.target.closest(".rv-btn");
+      if (!btn) return;
+
       const i = btn.getAttribute("data-idx");
-      out.innerHTML = `
+      
+      target.innerHTML = `
         <div class="success" style="animation: fadeIn 0.5s ease;">
           <img src="${memories[i].img}" 
-               alt="Our Memory"
-               style="width:100%; border-radius:16px; margin-bottom:10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);" 
-               onerror="this.src='https://via.placeholder.com/300?text=Image+Not+Found'"/>
-          <div style="font-style: italic; color: #555;">${memories[i].text}</div>
+               style="width:100%; border-radius:16px; margin-bottom:10px;" 
+               onerror="this.src='https://via.placeholder.com/400x300?text=Image+Not+Found+Check+Folder'"/>
+          <div style="font-style: italic;">${memories[i].text}</div>
         </div>
       `;
+      
       markDone(d.id);
       renderCards();
     };
-  });
-  return;
-}
+    return;
+  }
 
   if (d.type === "question") {
     openModal(
