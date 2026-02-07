@@ -3,14 +3,14 @@
 // Locking uses Asia/Kolkata date (not device timezone)
 
 const DAYS = [
-  { id: "d1", date: "2026-10-10", title: "Rose Day",       label: "One small key 🔑",     type: "code" },
-  { id: "d2", date: "2026-02-10", title: "Propose Day",    label: "Pick one",            type: "choose" },
-  { id: "d3", date: "2026-02-10", title: "Chocolate Day",  label: "A slider truth",      type: "slider" },
-  { id: "d4", date: "2026-02-10", title: "Teddy Day",      label: "A soft letter",       type: "letter" },
-  { id: "d5", date: "2026-02-10", title: "Promise Day",    label: "3 tiny promises",     type: "checks" },
-  { id: "d6", date: "2026-02-10", title: "Hug Day",        label: "Memory reveal",       type: "reveal" },
-  { id: "d7", date: "2026-02-10", title: "Kiss Day",       label: "One question",        type: "question" },
-  { id: "d8", date: "2026-02-10", title: "Valentine’s Day",label: "Final unlock ✨",      type: "final" },
+  { id: "d1", date: "2026-02-07", title: "Rose Day",       label: "One small key 🔑",     type: "code" },
+  { id: "d2", date: "2026-02-07", title: "Propose Day",    label: "Pick one",            type: "choose" },
+  { id: "d3", date: "2026-02-07", title: "Chocolate Day",  label: "A slider truth",      type: "slider" },
+  { id: "d4", date: "2026-02-07", title: "Teddy Day",      label: "A soft letter",       type: "letter" },
+  { id: "d5", date: "2026-02-07", title: "Promise Day",    label: "3 tiny promises",     type: "checks" },
+  { id: "d6", date: "2026-02-07", title: "Hug Day",        label: "Memory reveal",       type: "reveal" },
+  { id: "d7", date: "2026-02-07", title: "Kiss Day",       label: "One question",        type: "question" },
+  { id: "d8", date: "2026-02-07", title: "Valentine’s Day",label: "Final unlock ✨",      type: "final" },
 ];
 
 function getKolkataYMD() {
